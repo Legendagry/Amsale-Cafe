@@ -1,0 +1,28 @@
+{
+  "summary": "First-finish smoke testing of Amsale Café app. Backend (5 endpoints) and Frontend (hero, navbar+drawer, cookie banner, menu tabs, gallery, reviews, visit, contact form submission, footer legal modals) all functional with 0 console errors.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "passed": [
+    "GET /api/ -> 200 {'message':'Amsale Café API'}",
+    "POST /api/contact valid payload -> 200 with id+created_at",
+    "POST /api/contact invalid email -> 422 with EmailStr validation error",
+    "POST /api/contact with honeypot -> 200 but NOT persisted in GET /api/contact (verified by absence of BotUser_HoneypotMark)",
+    "GET /api/contact -> 200 returning list of inquiries",
+    "Frontend root URL loads with no console errors",
+    "Hero renders 'Amsale Café' title; hero-cta-menu and hero-cta-visit testids present",
+    "Navbar visible with nav-call-button; clicking nav-hamburger opens nav-drawer.open",
+    "Menu section: all 4 tabs (espresso/food/cold/seasonal) present and switchable",
+    "DomeGallery (dome-gallery) renders",
+    "Reviews strip (reviews-strip) renders",
+    "Visit section: iframe map + visit-directions-btn present",
+    "Contact form submission: filled name+email, clicked contact-submit, contact-success appeared (frontend->backend POST integration confirmed)",
+    "Cookie banner shown on first load, accepting hides it and persists 'accepted' in localStorage (key: amsale_cookie_consent)",
+    "Footer footer-privacy opens legal-modal-privacy; ESC closes the modal",
+    "Zero console errors on page load and during interactions"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Did not exhaustively test footer-terms / footer-accessibility modals or anchor-link smooth scrolling navigation from drawer, or gallery image click overlay/gallery-close — core flows verified. Pre-existing shadcn lint errors in calendar.jsx/command.jsx ignored per instructions."
+}

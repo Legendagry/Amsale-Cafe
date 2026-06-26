@@ -1,0 +1,13 @@
+{
+  "name": "Amsale Café",
+  "short_name": "Amsale",
+  "description": "A modern Ethiopian café in West Philadelphia.",
+  "theme_color": "#1A0F07",
+  "background_color": "#FAF6EF",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "64x64", "type": "image/x-icon" }
+  ]
+}

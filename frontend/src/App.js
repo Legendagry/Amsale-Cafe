@@ -1,56 +1,44 @@
-import { useEffect } from "react";
+import React, { useState } from "react";
+import "@/index.css";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Hero from "@/components/sections/Hero";
+import EthiotopiaOrb from "@/components/sections/EthiotopiaOrb";
+import OurStory from "@/components/sections/OurStory";
+import Menu from "@/components/sections/Menu";
+import Gallery from "@/components/sections/Gallery";
+import Reviews from "@/components/sections/Reviews";
+import Visit from "@/components/sections/Visit";
+import Contact from "@/components/sections/Contact";
+import { CookieBanner, LegalModal } from "@/components/Overlays";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
+export default function App() {
+  const [navOpen, setNavOpen] = useState(false);
+  const [legal, setLegal] = useState(null); // null | "privacy" | "terms" | "accessibility"
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+    <div className="App" data-testid="app-root">
+      <a href="#main-content" className="skip-link" data-testid="skip-link">Skip to main content</a>
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <Navbar open={navOpen} setOpen={setNavOpen} />
+
+      <main id="main-content">
+        <Hero />
+        <EthiotopiaOrb />
+        <OurStory />
+        <Menu />
+        <Gallery />
+        <Reviews />
+        <Visit />
+        <Contact />
+      </main>
+
+      <Footer openLegal={(kind) => setLegal(kind)} />
+
+      <CookieBanner onOpenPrivacy={() => setLegal("privacy")} />
+      <LegalModal open={!!legal} kind={legal} onClose={() => setLegal(null)} />
     </div>
   );
 }
-
-export default App;
