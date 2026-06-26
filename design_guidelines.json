@@ -1,0 +1,139 @@
+{
+  "theme": "LIGHT",
+  "archetype": "1 (Organic & Earthy)",
+  "aesthetic": "Warm editorial Ethiopian coffee aesthetic. Noma meets Apple meets a high-end Ethiopian coffee brand lookbook. Immersive, rich, earthy but clean and structural. Avoid all cool tones (blue/purple/pink/cyan).",
+  "colors": {
+    "background": {
+      "primary": "#FAF6EF",
+      "secondary": "#F5EFE4",
+      "tertiary": "#EDE5D8"
+    },
+    "text": {
+      "primary": "#1C1410",
+      "secondary": "#2C1A0E",
+      "muted": "#7A8C72"
+    },
+    "accent": {
+      "espresso": "#1A0F07",
+      "walnut": "#2C1A0E",
+      "amber": "#C8922A",
+      "gold": "#D4A843",
+      "brass": "#B8965A",
+      "sage": "#7A8C72"
+    },
+    "forbidden": [
+      "pure black (#000000)",
+      "pure white (#FFFFFF)",
+      "blue",
+      "purple",
+      "pink",
+      "cyan"
+    ]
+  },
+  "typography": {
+    "fonts": {
+      "hero_wordmark": {
+        "family": "Equinox, Italiana, serif",
+        "source": "self-hosted (Equinox), Google Fonts (Italiana)"
+      },
+      "rotating_subtitle": {
+        "family": "Gondens Demo, 'Cormorant Garamond', serif",
+        "style": "italic",
+        "source": "self-hosted (Gondens Demo), Google Fonts (Cormorant Garamond Italic)"
+      },
+      "headings": {
+        "family": "'Cormorant Garamond', serif",
+        "source": "Google Fonts"
+      },
+      "body": {
+        "family": "'DM Sans', sans-serif",
+        "source": "Google Fonts"
+      }
+    },
+    "hierarchy": {
+      "h1": "text-6xl sm:text-7xl lg:text-8xl tracking-tight leading-none",
+      "h2": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight",
+      "h3": "text-2xl sm:text-3xl leading-snug",
+      "body_large": "text-lg sm:text-xl leading-relaxed",
+      "body": "text-base leading-relaxed tracking-normal",
+      "overline": "text-xs tracking-[0.2em] uppercase font-medium"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous spacing. Use p-8 to p-24 for padding to give breathing room. Asymmetric layouts for editorial feel.",
+    "container": "max-w-[1400px] mx-auto px-6 md:px-12",
+    "grid": "grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12"
+  },
+  "components": {
+    "navigation": {
+      "style": "Liquid Glass floating nav",
+      "classes": "fixed top-6 left-1/2 -translate-x-1/2 z-50 rounded-full backdrop-blur-xl bg-[#FAF6EF]/70 border border-[#2C1A0E]/10 shadow-[0_8px_32px_rgba(28,20,16,0.08)]",
+      "elements": [
+        "Brand Logo",
+        "Phone CTA",
+        "Hamburger Icon (opens fullscreen drawer)"
+      ],
+      "drawer": "Fullscreen, background #1A0F07, text #FAF6EF, stagger-animated links."
+    },
+    "hero": {
+      "background": "Lightweight CSS/SVG-based flowing strands (organic curves, muted brass/amber strokes on deep espresso background). No WebGL to preserve performance.",
+      "layout": "Center-aligned or asymmetric text overlay. Typewriter subtitle below the main wordmark."
+    },
+    "ethiotopia_orb": {
+      "style": "A glowing/floating CSS-based gradient orb or structural circular element representing 'Ethiotopia'. Central focal point for a mission statement. Use amber/brass gradients."
+    },
+    "our_story": {
+      "layout": "Asymmetric two-column. Editorial photography on one side, overlapping text container on the other. Use rich amber and parchment background tones."
+    },
+    "menu": {
+      "layout": "Placeholder/coming soon cards with category tabs (Coffee, Food, Pastries). Minimalist bento grid layout.",
+      "interaction": "Smooth fade between tab content."
+    },
+    "gallery": {
+      "style": "3D draggable Dome. Framer Motion + standard CSS 3D transforms to create a draggable circular/dome gallery of images."
+    },
+    "reviews": {
+      "layout": "Horizontal scroll cards using Lenis or Framer Motion drag. Cards have 1px borders, subtle soft cream backgrounds."
+    },
+    "visit_and_contact": {
+      "layout": "Split section or stacked. Visit info card with Google Maps embed. Contact form uses floating labels (pure CSS or Shadcn customized) wired to a backend endpoint.",
+      "form_elements": "Input fields with border-b only (border-[#2C1A0E]/20), floating label on focus, no heavy card backgrounds."
+    },
+    "legal_and_footer": {
+      "footer": "Deep espresso background. 'Did You Know?' note about Ethiopian coffee origin.",
+      "cookie_banner": "Fixed bottom, minimal glassmorphism.",
+      "modals": "Privacy/Terms/Accessibility in Shadcn Dialogs."
+    }
+  },
+  "media": {
+    "instructions_to_main_agent": "Use these exact URLs for images. DO NOT use placeholder services.",
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1728761390316-935ffeb3fbcc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwzfHx3YXJtJTIwY2FmZSUyMGludGVyaW9yfGVufDB8fHx8MTc4MjQ0MTgyN3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Warm, dramatic lighting cafe interior"
+    },
+    "our_story": {
+      "url": "https://images.unsplash.com/photo-1630861413071-a424a4d6d155?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzB8MHwxfHNlYXJjaHwxfHxldGhpb3BpYW4lMjBjb2ZmZWUlMjBjZXJlbW9ueXxlbnwwfHx8fDE3ODI0NDE4Mjd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Black ceramic teapot, traditional coffee ceremony element"
+    },
+    "dome_gallery": [
+      "https://images.unsplash.com/photo-1630861412757-d9743d318312?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzB8MHwxfHNlYXJjaHwyfHxldGhpb3BpYW4lMjBjb2ZmZWUlMjBjZXJlbW9ueXxlbnwwfHx8fDE3ODI0NDE4Mjd8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1630861412229-67e2acb44b7a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzB8MHwxfHNlYXJjaHwzfHxldGhpb3BpYW4lMjBjb2ZmZWUlMjBjZXJlbW9ueXxlbnwwfHx8fDE3ODI0NDE4Mjd8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.pexels.com/photos/9409791/pexels-photo-9409791.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/20825644/pexels-photo-20825644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.unsplash.com/photo-1601065700897-d9fa1c093f3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwyfHx3YXJtJTIwY2FmZSUyMGludGVyaW9yfGVufDB8fHx8MTc4MjQ0MTgyN3ww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1550523303-e9e27624ed35?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwzfHxoYW5kcyUyMGhvbGRpbmclMjBjb2ZmZWUlMjBjdXB8ZW58MHx8fHwxNzgyNDQxODI3fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.pexels.com/photos/3050828/pexels-photo-3050828.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.unsplash.com/photo-1575026469075-99e9e3433e72?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxoYW5kcyUyMGhvbGRpbmclMjBjb2ZmZWUlMjBjdXB8ZW58MHx8fHwxNzgyNDQxODI3fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.pexels.com/photos/17486827/pexels-photo-17486827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/17486836/pexels-photo-17486836.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.unsplash.com/photo-1593252719532-53f183016149?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHwxfHxldGhpb3BpYW4lMjBmb29kJTIwZGlubmVyfGVufDB8fHx8MTc4MjQ0MTgyN3ww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1729277133095-bff46b56c29a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxwb3VyJTIwb3ZlciUyMGNvZmZlZSUyMGNhZmV8ZW58MHx8fHwxNzgyNDQxODI3fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1541469406036-71229832e06e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxwb3VyJTIwb3ZlciUyMGNvZmZlZSUyMGNhZmV8ZW58MHx8fHwxNzgyNDQxODI3fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwyfHxoYW5kcyUyMGhvbGRpbmclMjBjb2ZmZWUlMjBjdXB8ZW58MHx8fHwxNzgyNDQxODI3fDA&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "technical_rules": {
+    "file_extensions": "Use .js and .jsx extensions exclusively (no TypeScript / .tsx files).",
+    "testing": "All interactive elements MUST include data-testid attributes (e.g., data-testid='hero-cta-button', data-testid='menu-tab-coffee')."
+  }
+}
