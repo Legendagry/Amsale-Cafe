@@ -4,23 +4,22 @@
 
 /* ---- Liquid Glass surface ---- */
 .lg-surface {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(26, 15, 7, 0.55);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(200, 146, 42, 0.35);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   color: var(--ivory);
   transition: all 0.3s var(--ease-bounce);
 }
 .lg-surface:hover {
-  background: rgba(200, 146, 42, 0.2);
-  border-color: rgba(200, 146, 42, 0.4);
+  background: rgba(200, 146, 42, 0.28);
+  border-color: rgba(200, 146, 42, 0.6);
   box-shadow:
-    0 4px 24px rgba(200, 146, 42, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 4px 24px rgba(200, 146, 42, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 /* ---- Navbar ---- */
@@ -184,13 +183,14 @@
   animation: fadeInDown 0.6s ease 0.1s both;
 }
 .hero-title {
-  font-family: "Equinox", "Italiana", serif;
+  font-family: "Cinzel Decorative", "Equinox", "Italiana", serif;
   font-size: var(--text-display);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--ivory);
-  line-height: 0.95;
+  line-height: 1;
   margin: 0;
-  font-weight: 400;
+  font-weight: 900;
+  text-shadow: 0 0 24px rgba(232, 17, 26, 0.18), 0 0 40px rgba(252, 221, 9, 0.08);
   animation: clipReveal 1.2s var(--ease-strong) 0.3s both;
 }
 .hero-sub {
@@ -292,36 +292,38 @@
 }
 .orb {
   position: relative;
-  width: 300px; height: 300px;
+  width: min(320px, 78vw); height: min(320px, 78vw);
   border-radius: 50%;
   overflow: hidden;
-  background: radial-gradient(circle, rgba(200, 146, 42, 0.12) 0%, rgba(26, 15, 7, 0) 70%);
-  box-shadow: 0 0 80px rgba(200, 146, 42, 0.18), 0 0 160px rgba(200, 146, 42, 0.07);
+  background: radial-gradient(circle, rgba(252, 221, 9, 0.08) 0%, rgba(26, 15, 7, 0) 70%);
+  box-shadow: 0 0 80px rgba(232, 17, 26, 0.14), 0 0 160px rgba(7, 137, 48, 0.08);
   transition: transform 0.15s ease-out;
 }
-@media (max-width: 640px) { .orb { width: 220px; height: 220px; } }
 .orb-layer {
   position: absolute;
   left: 50%; top: 50%;
   border-radius: 50%;
 }
 .orb-l1 {
-  width: 120%; height: 60%;
+  width: 130%; height: 65%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse, rgba(200, 146, 42, 0.5) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(232, 17, 26, 0.65) 0%, transparent 68%);
   animation: orbRotate 8s linear infinite, orbPulse 4s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
 }
 .orb-l2 {
-  width: 120%; height: 60%;
+  width: 125%; height: 60%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse, rgba(180, 120, 30, 0.35) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(252, 221, 9, 0.55) 0%, transparent 68%);
   animation: orbRotateRev 12s linear infinite, orbPulse 3s ease-in-out -1.5s infinite alternate;
+  mix-blend-mode: screen;
 }
 .orb-l3 {
-  width: 80%; height: 80%;
+  width: 120%; height: 60%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(250, 230, 180, 0.18) 0%, transparent 70%);
-  animation: orbRotate 6s linear infinite, orbPulse 5s ease-in-out infinite alternate;
+  background: radial-gradient(ellipse, rgba(7, 137, 48, 0.55) 0%, transparent 68%);
+  animation: orbRotate 10s linear infinite, orbPulse 5s ease-in-out -2.5s infinite alternate;
+  mix-blend-mode: screen;
 }
 .ethio-line {
   font-family: "Cormorant Garamond", serif;
@@ -435,8 +437,10 @@
 }
 .menu-card:hover::before { opacity: 1; }
 .menu-card-icon { width: 40px; height: 40px; color: var(--amber); margin-bottom: 1rem; }
-.menu-card-title { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: var(--text-xl); color: var(--ivory); margin: 0; }
-.menu-card-blurb { font-size: var(--text-sm); color: rgba(250, 246, 239, 0.45); margin-top: 0.5rem; font-weight: 300; }
+.menu-card-title { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: var(--text-xl); color: var(--ivory); margin: 0; line-height: 1.15; }
+.menu-card-amharic { font-family: "Cormorant Garamond", serif; font-size: var(--text-sm); color: var(--brass); margin-top: 0.15rem; letter-spacing: 0.02em; }
+.menu-card-price { font-family: "Syne", "DM Sans", sans-serif; font-weight: 800; font-size: 1.35rem; color: var(--gold); margin-top: 0.75rem; letter-spacing: 0.02em; }
+.menu-card-blurb { font-size: var(--text-sm); color: rgba(250, 246, 239, 0.62); margin-top: 0.6rem; font-weight: 300; line-height: 1.6; }
 .menu-card-list { list-style: none; margin: 1.25rem 0 0; padding: 0; }
 .menu-card-list li { font-size: var(--text-sm); color: rgba(250, 246, 239, 0.45); padding: 0.4rem 0; border-top: 1px dashed rgba(200, 146, 42, 0.15); }
 
@@ -532,7 +536,20 @@
 .review-name { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: var(--text-lg); color: var(--ink); }
 .review-label { font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass); margin-top: 0.25rem; }
 
-/* ---- Visit ---- */
+/* Leave a review card */
+.review-cta {
+  margin-top: 2.5rem;
+  background: linear-gradient(135deg, rgba(200,146,42,0.08), rgba(232,17,26,0.04));
+  border: 1px solid rgba(200, 146, 42, 0.3);
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  align-items: flex-start;
+}
+@media (min-width: 768px) { .review-cta { flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; } }
+.review-cta h3 { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: var(--text-2xl); color: var(--ink); margin: 0; }
+.review-cta p { color: rgba(28,20,16,0.65); margin: 0.25rem 0 0; font-size: var(--text-sm); }
+
 .visit { background: var(--cream); color: var(--ink); }
 .visit-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2.5rem; }
 @media (min-width: 1024px) { .visit-grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }

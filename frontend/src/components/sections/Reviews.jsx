@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { reviewsData } from "../../lib/data";
-import { ScrollReveal } from "../Primitives";
+import { reviewsData, siteConfig } from "../../lib/data";
+import { MagneticButton, ScrollReveal } from "../Primitives";
 
 export default function Reviews() {
   const stripRef = useRef(null);
@@ -8,9 +8,7 @@ export default function Reviews() {
   useEffect(() => {
     const el = stripRef.current;
     if (!el) return;
-    let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
+    let isDown = false, startX = 0, scrollLeft = 0;
     const down = (e) => {
       isDown = true;
       startX = (e.touches?.[0]?.pageX ?? e.pageX) - el.offsetLeft;
@@ -38,7 +36,7 @@ export default function Reviews() {
   return (
     <section className="reviews section-pad" aria-label="Reviews" data-testid="reviews-section">
       <div className="section-container">
-        <ScrollReveal as="div" className="eyebrow">Reviews</ScrollReveal>
+        <ScrollReveal as="div" className="eyebrow">Reviews · from Google</ScrollReveal>
         <ScrollReveal as="h2" delay={0.08} className="story-heading">What Our Community Says</ScrollReveal>
         <div ref={stripRef} className="reviews-strip" data-testid="reviews-strip">
           {reviewsData.map((r, i) => (
@@ -50,6 +48,25 @@ export default function Reviews() {
             </article>
           ))}
         </div>
+
+        <ScrollReveal delay={0.1}>
+          <div className="review-cta" data-testid="leave-review-cta">
+            <div>
+              <h3>Visited recently? Tell us about it.</h3>
+              <p>Five-star meals are made by neighbors like you. Your words help others find us.</p>
+            </div>
+            <MagneticButton
+              as="a"
+              href={siteConfig.reviewLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+              data-testid="leave-review-btn"
+            >
+              Leave a Google Review
+            </MagneticButton>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

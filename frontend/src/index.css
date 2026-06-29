@@ -110,7 +110,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* Type roles */
-.font-display { font-family: "Equinox", "Italiana", serif; letter-spacing: 0.08em; }
+.font-display { font-family: "Cinzel Decorative", "Equinox", "Italiana", serif; letter-spacing: 0.06em; font-weight: 900; }
 .font-script { font-family: "GondensDemo", "Cormorant Garamond", serif; font-style: italic; }
 .font-heading { font-family: "Cormorant Garamond", serif; letter-spacing: -0.02em; }
 .font-body { font-family: "DM Sans", sans-serif; }
