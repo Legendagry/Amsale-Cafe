@@ -15,7 +15,9 @@ export function CookieBanner({ onOpenPrivacy }) {
   }, []);
 
   const act = (val) => {
-    try { localStorage.setItem("amsale_cookie_consent", val); } catch { /* ignore */ }
+    try { localStorage.setItem("amsale_cookie_consent", val); } catch (err) {
+      console.warn("Cookie consent could not be persisted:", err);
+    }
     setDismissed(true);
     setTimeout(() => setVisible(false), 400);
   };
@@ -73,10 +75,10 @@ export function LegalModal({ open, kind, onClose }) {
           <>
             <h2 className="legal-h1">{content.title}</h2>
             <p className="legal-date">Effective {content.date}</p>
-            {content.sections.map((s, i) => (
-              <React.Fragment key={i}>
+            {content.sections.map((s) => (
+              <React.Fragment key={s.h}>
                 <h3 className="legal-h2">{s.h}</h3>
-                {s.p.map((para, j) => <p key={j} className="legal-p">{para}</p>)}
+                {s.p.map((para) => <p key={para.slice(0, 32)} className="legal-p">{para}</p>)}
               </React.Fragment>
             ))}
           </>

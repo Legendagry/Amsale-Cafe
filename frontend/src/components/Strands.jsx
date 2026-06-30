@@ -41,9 +41,9 @@ export default function Strands() {
             <stop offset="100%" stopColor="#FAF6EF" stopOpacity="0" />
           </linearGradient>
         </defs>
-        {strands.map((s, i) => (
+        {strands.map((s) => (
           <path
-            key={i}
+            key={`thick-${s.cls || "s1"}`}
             d={s.d}
             className={`strand-path ${s.cls}`}
             stroke={s.color}
@@ -51,9 +51,9 @@ export default function Strands() {
             style={{ mixBlendMode: "screen" }}
           />
         ))}
-        {strands.map((s, i) => (
+        {strands.map((s) => (
           <path
-            key={`thin-${i}`}
+            key={`thin-${s.cls || "s1"}`}
             d={s.d}
             className={`strand-path ${s.cls}`}
             stroke={s.color}

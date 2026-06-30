@@ -39,8 +39,8 @@ export default function Reviews() {
         <ScrollReveal as="div" className="eyebrow">Reviews · from Google</ScrollReveal>
         <ScrollReveal as="h2" delay={0.08} className="story-heading">What Our Community Says</ScrollReveal>
         <div ref={stripRef} className="reviews-strip" data-testid="reviews-strip">
-          {reviewsData.map((r, i) => (
-            <article key={i} className="review-card" data-testid={`review-card-${i}`}>
+          {reviewsData.map((r) => (
+            <article key={r.name} className="review-card" data-testid={`review-card-${r.name.replace(/\s+/g, "-").toLowerCase()}`}>
               <div className="review-stars" aria-label={`${r.stars} stars`}>{"★".repeat(r.stars)}</div>
               <p className="review-text">{r.text}</p>
               <div className="review-name">{r.name}</div>

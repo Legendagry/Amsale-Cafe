@@ -133,7 +133,7 @@ export default function DomeGallery({ images = [], fit = 0.8 }) {
               if (!p) return null;
               const transform = `translate(-50%, -50%) rotateY(${p.theta}deg) rotateX(${p.phi}deg) translateZ(${p.radius * fit}px)`;
               return (
-                <div key={i} className="dome-cell" style={{ transform }}>
+                <div key={img.src} className="dome-cell" style={{ transform }}>
                   <img
                     src={img.src}
                     alt={img.alt || "Amsale Café gallery image"}

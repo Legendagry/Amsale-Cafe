@@ -78,33 +78,43 @@ async def get_status_checks():
     return status_checks
 
 
-@api_router.post("/contact", response_model=ContactInquiry)
-async def create_contact_inquiry(payload: ContactInquiryCreate):
-    # Silent honeypot drop
-    if payload.honeypot and payload.honeypot.strip():
-        # Return a fake "success" without persisting
-        return ContactInquiry(
-            name=payload.name,
-            email=str(payload.email),
-            phone=payload.phone,
-            party_size=payload.party_size,
-            preferred_date=payload.preferred_date,
-            message=payload.message,
-        )
+def _clean(value: Optional[str]) -> Optional[str]:
+    if value is None:
+        return None
+    stripped = value.strip()
+    return stripped or None
 
-    inquiry = ContactInquiry(
+
+def _is_honeypot_triggered(payload: ContactInquiryCreate) -> bool:
+    return bool(payload.honeypot and payload.honeypot.strip())
+
+
+def _build_inquiry(payload: ContactInquiryCreate) -> ContactInquiry:
+    return ContactInquiry(
         name=payload.name.strip(),
         email=str(payload.email).strip(),
-        phone=(payload.phone or "").strip() or None,
-        party_size=(payload.party_size or "").strip() or None,
-        preferred_date=(payload.preferred_date or "").strip() or None,
-        message=(payload.message or "").strip() or None,
+        phone=_clean(payload.phone),
+        party_size=_clean(payload.party_size),
+        preferred_date=_clean(payload.preferred_date),
+        message=_clean(payload.message),
     )
+
+
+async def _persist_inquiry(inquiry: ContactInquiry) -> None:
     doc = inquiry.model_dump()
     doc['created_at'] = doc['created_at'].isoformat()
+    await db.contact_inquiries.insert_one(doc)
+
+
+@api_router.post("/contact", response_model=ContactInquiry)
+async def create_contact_inquiry(payload: ContactInquiryCreate):
+    inquiry = _build_inquiry(payload)
+    if _is_honeypot_triggered(payload):
+        # Silent honeypot drop: respond like success but do not persist.
+        return inquiry
     try:
-        await db.contact_inquiries.insert_one(doc)
-    except Exception as e:
+        await _persist_inquiry(inquiry)
+    except Exception:
         logging.exception("Failed to save contact inquiry")
         raise HTTPException(status_code=500, detail="Unable to save inquiry")
     return inquiry

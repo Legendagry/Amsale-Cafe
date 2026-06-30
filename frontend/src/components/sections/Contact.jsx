@@ -147,7 +147,14 @@ export default function Contact() {
   );
 }
 
+const FIELD_AUTOCOMPLETE = {
+  email: "email",
+  phone: "tel",
+  name: "name",
+};
+
 function Field({ id, label, type = "text", required, value, onChange, error, testid }) {
+  const autoComplete = FIELD_AUTOCOMPLETE[id] || "off";
   return (
     <div className="field">
       <input
@@ -158,7 +165,7 @@ function Field({ id, label, type = "text", required, value, onChange, error, tes
         value={value}
         onChange={onChange}
         data-testid={testid}
-        autoComplete={id === "email" ? "email" : id === "phone" ? "tel" : id === "name" ? "name" : "off"}
+        autoComplete={autoComplete}
       />
       <label htmlFor={id}>{label}{required ? " *" : ""}</label>
       {error && <div className="field-error">{error}</div>}

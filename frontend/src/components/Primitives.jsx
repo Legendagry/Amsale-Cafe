@@ -4,10 +4,17 @@ import { useReducedMotion, useIntersectionObserver } from "../lib/hooks";
 /* -----------------------------------------------
    ScrollReveal
 ----------------------------------------------- */
+const REVEAL_AXIS = {
+  left: "translateX(40px)",
+  right: "translateX(-40px)",
+  down: "translateY(-30px)",
+  up: "translateY(30px)",
+};
+
 export function ScrollReveal({ children, delay = 0, duration = 0.7, direction = "up", as: As = "div", className = "", ...rest }) {
   const [ref, visible] = useIntersectionObserver();
   const reduced = useReducedMotion();
-  const axis = direction === "left" ? "translateX(40px)" : direction === "right" ? "translateX(-40px)" : direction === "down" ? "translateY(-30px)" : "translateY(30px)";
+  const axis = REVEAL_AXIS[direction] || REVEAL_AXIS.up;
   const style = reduced
     ? { transition: `opacity ${duration}s ease ${delay}s`, opacity: visible ? 1 : 0 }
     : {
@@ -21,6 +28,12 @@ export function ScrollReveal({ children, delay = 0, duration = 0.7, direction = 
 /* -----------------------------------------------
    MagneticButton
 ----------------------------------------------- */
+const BTN_VARIANT_CLASS = {
+  primary: "btn-primary",
+  ghost: "btn-ghost",
+  "dark-ghost": "btn-dark-ghost",
+};
+
 export function MagneticButton({ as: As = "button", variant = "primary", className = "", children, onClick, ...rest }) {
   const ref = useRef(null);
   const labelRef = useRef(null);
@@ -43,7 +56,7 @@ export function MagneticButton({ as: As = "button", variant = "primary", classNa
     if (labelRef.current) labelRef.current.style.transform = "";
   };
 
-  const variantClass = variant === "primary" ? "btn-primary" : variant === "ghost" ? "btn-ghost" : variant === "dark-ghost" ? "btn-dark-ghost" : "";
+  const variantClass = BTN_VARIANT_CLASS[variant] || "";
 
   return (
     <As
