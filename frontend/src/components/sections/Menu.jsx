@@ -76,6 +76,15 @@ export default function Menu() {
               delay={Math.min(0.04 * i, 0.4)}
               data-testid={`menu-item-${active}-${i}`}
             >
+              {i === 0 && current.heroImage && (
+                <img
+                  src={current.heroImage}
+                  alt={`${current.label} at Amsale Café`}
+                  loading="lazy"
+                  decoding="async"
+                  className="menu-card-photo"
+                />
+              )}
               <div className="menu-card-icon">{ICONS[current.icon]}</div>
               <h3 className="menu-card-title">{item.name}</h3>
               {item.amharic && <div className="menu-card-amharic">{item.amharic}</div>}
@@ -87,7 +96,7 @@ export default function Menu() {
 
         <ScrollReveal delay={0.15}>
           <div className="menu-note" style={{ marginTop: "2.5rem" }}>
-            <span aria-hidden="true" style={{ marginRight: 6 }}>☎</span> Call{" "}
+            Call{" "}
             <a href={`tel:${siteConfig.phoneTel}`}>{siteConfig.phone}</a> to place a pickup order — or email{" "}
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> for catering inquiries.
           </div>
